@@ -1,0 +1,90 @@
+/* Base */
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  color: #2f3440;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Header */
+header h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  /* was bolder */
+  letter-spacing: 0.2px;
+}
+
+/* Buttons */
+button {
+  font-weight: 500;
+  padding: 6px 11px;
+  border-radius: 8px;
+}
+
+/* Cards */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  /* softer shadow */
+}
+
+.card a {
+  font-weight: 500;
+  color: #1f6fe5;
+}
+
+
+/* ===== Search Bar ===== */
+#search {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+
+/* .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+} */
+
+/* ===== Avatar Images ===== */
+.card img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+#contributors-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#contributors-list .card {
+  flex: 1 1 280px;
+  margin-bottom: 0;
+}
+
+
+/* ===== Links ===== */
+a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Contributor/User Page ===== */
+#app>h3 {
+  margin-top: 20px;
+}
