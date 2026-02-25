@@ -1,90 +1,199 @@
-/* Base */
+:root {
+  --bg-1: #f4f7fb;
+  --bg-2: #e7eef8;
+  --surface: #ffffff;
+  --surface-soft: #f8fbff;
+  --text: #172033;
+  --muted: #5c6a85;
+  --primary: #0f6ad9;
+  --primary-strong: #0b4ea8;
+  --line: #d7e1ef;
+  --shadow: 0 14px 34px rgba(14, 36, 69, 0.12);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+}
+
 * {
-  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-  color: #2f3440;
-  line-height: 1.6;
-  font-weight: 400;
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  line-height: 1.5;
+  background: radial-gradient(circle at 10% 10%, #ffffff 0%, var(--bg-1) 40%, var(--bg-2) 100%);
 }
 
-/* Header */
+header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 20px 22px;
+}
+
 header h1 {
-  font-size: 2.2rem;
-  font-weight: 500;
-  /* was bolder */
-  letter-spacing: 0.2px;
+  margin: 0;
+  font-family: "Sora", "Segoe UI", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
 }
 
-/* Buttons */
-button {
-  font-weight: 500;
-  padding: 6px 11px;
-  border-radius: 8px;
+header p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
 }
 
-/* Cards */
-.card {
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-  /* softer shadow */
+#app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
 }
 
-.card a {
-  font-weight: 500;
-  color: #1f6fe5;
+.hero {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(130deg, #ffffff, #eef5ff);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
 
-
-/* ===== Search Bar ===== */
-#search {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+.hero h2 {
+  margin: 0;
+  font-family: "Sora", "Segoe UI", sans-serif;
+  font-size: clamp(1.3rem, 2.3vw, 2rem);
 }
 
+.hero p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
 
-/* .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-} */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 16px;
+}
 
-/* ===== Avatar Images ===== */
-.card img {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
+.controls-label {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-right: 4px;
+}
+
+button,
+.sort-button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover,
+.sort-button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.sort-button.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
 }
 
 #contributors-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 12px;
 }
 
-#contributors-list .card {
-  flex: 1 1 280px;
-  margin-bottom: 0;
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: 0 4px 16px rgba(14, 36, 69, 0.07);
 }
 
+.contributor-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+}
 
-/* ===== Links ===== */
+.card img {
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--surface-soft);
+}
+
+.contributor-name,
 a {
-  color: #007bff;
+  color: var(--primary-strong);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
 }
 
+.contributor-name:hover,
 a:hover {
   text-decoration: underline;
 }
 
-/* ===== Contributor/User Page ===== */
-#app>h3 {
-  margin-top: 20px;
+.contributor-main {
+  min-width: 0;
+}
+
+.contributor-meta {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.scroll-state {
+  text-align: center;
+  color: var(--muted);
+  padding: 16px 0;
+}
+
+#scroll-end {
+  display: none;
+}
+
+#scroll-sentinel {
+  height: 1px;
+}
+
+#app > h2,
+#app > h3 {
+  font-family: "Sora", "Segoe UI", sans-serif;
+}
+
+#app > .card {
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 720px) {
+  header {
+    padding: 34px 16px 16px;
+  }
+
+  #app {
+    padding: 0 16px 30px;
+  }
+
+  .hero {
+    padding: 18px;
+  }
+
+  .contributor-card {
+    padding: 12px;
+    gap: 10px;
+  }
 }
